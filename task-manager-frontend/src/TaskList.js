@@ -5,13 +5,13 @@ function TaskList() {
   const [newTask, setNewTask] = useState("");
 
   useEffect(() => {
-    fetch("https://localhost:5001/api/tasks")
+    fetch("http://localhost:5001/api/Task")
       .then(response => response.json())
       .then(data => setTasks(data));
   }, []);
 
   const addTask = () => {
-    fetch("https://localhost:5001/api/tasks", {
+    fetch("http://localhost:5001/api/Task", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: newTask, isComplete: false }),
